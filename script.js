@@ -1,0 +1,1 @@
+console.log("Deal Theka Website Loaded Successfully");
