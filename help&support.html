@@ -1,293 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Delete Account - DealTheka</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Delete Account - Deal Theka</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+    <style>
 
-    body{
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      background: linear-gradient(135deg, #111827, #1f2937);
-      padding:20px;
-    }
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
 
-    .container{
-      width:100%;
-      max-width:500px;
-      background:#ffffff;
-      border-radius:20px;
-      padding:35px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.3);
-      animation: fadeIn 0.5s ease;
-    }
+        body{
+            background:#f4f6f9;
+            padding:20px;
+            color:#333;
+        }
 
-    @keyframes fadeIn{
-      from{
-        opacity:0;
-        transform:translateY(20px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
+        .container{
+            max-width:800px;
+            margin:auto;
+            background:#fff;
+            padding:35px;
+            border-radius:12px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
 
-    .warning-icon{
-      width:80px;
-      height:80px;
-      background:#fee2e2;
-      color:#dc2626;
-      border-radius:50%;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      font-size:40px;
-      margin:0 auto 20px;
-    }
+        .header{
+            text-align:center;
+            margin-bottom:30px;
+        }
 
-    h1{
-      text-align:center;
-      color:#111827;
-      margin-bottom:15px;
-      font-size:32px;
-    }
+        .header h1{
+            color:#d32f2f;
+            margin-bottom:10px;
+            font-size:36px;
+        }
 
-    .subtitle{
-      text-align:center;
-      color:#6b7280;
-      line-height:1.6;
-      margin-bottom:30px;
-      font-size:15px;
-    }
+        .header p{
+            color:#666;
+            line-height:1.6;
+        }
 
-    .info-box{
-      background:#f9fafb;
-      border-left:4px solid #dc2626;
-      padding:15px;
-      border-radius:10px;
-      margin-bottom:25px;
-    }
+        .warning-box{
+            background:#fff3f3;
+            border-left:5px solid #d32f2f;
+            padding:20px;
+            border-radius:8px;
+            margin-bottom:30px;
+        }
 
-    .info-box ul{
-      margin-left:20px;
-      margin-top:10px;
-      color:#374151;
-    }
+        .warning-box h3{
+            color:#d32f2f;
+            margin-bottom:10px;
+        }
 
-    .info-box li{
-      margin-bottom:8px;
-      line-height:1.5;
-    }
+        h2{
+            margin-top:25px;
+            margin-bottom:15px;
+            color:#222;
+        }
 
-    .input-group{
-      margin-bottom:20px;
-    }
+        p{
+            line-height:1.7;
+            margin-bottom:15px;
+        }
 
-    label{
-      display:block;
-      margin-bottom:8px;
-      color:#111827;
-      font-weight:bold;
-    }
+        ul{
+            padding-left:20px;
+            margin-bottom:20px;
+        }
 
-    input{
-      width:100%;
-      padding:14px;
-      border:1px solid #d1d5db;
-      border-radius:10px;
-      font-size:15px;
-      outline:none;
-      transition:0.3s;
-    }
+        ul li{
+            margin-bottom:10px;
+            line-height:1.6;
+        }
 
-    input:focus{
-      border-color:#2563eb;
-      box-shadow:0 0 0 3px rgba(37,99,235,0.1);
-    }
+        .email-box{
+            background:#f8f9fa;
+            padding:20px;
+            border-radius:10px;
+            margin-top:20px;
+            text-align:center;
+        }
 
-    .checkbox{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      margin-bottom:25px;
-    }
+        .email-box a{
+            color:#1976d2;
+            font-size:18px;
+            font-weight:bold;
+            text-decoration:none;
+        }
 
-    .checkbox input{
-      width:auto;
-      margin-top:4px;
-    }
+        .email-box a:hover{
+            text-decoration:underline;
+        }
 
-    .checkbox label{
-      font-weight:normal;
-      color:#4b5563;
-      line-height:1.5;
-    }
+        .footer{
+            margin-top:40px;
+            text-align:center;
+            color:#777;
+            font-size:14px;
+        }
 
-    .btn-group{
-      display:flex;
-      gap:15px;
-    }
+        .delete-btn{
+            display:inline-block;
+            margin-top:20px;
+            background:#d32f2f;
+            color:#fff;
+            padding:14px 25px;
+            border-radius:8px;
+            text-decoration:none;
+            transition:0.3s;
+            font-weight:bold;
+        }
 
-    button{
-      flex:1;
-      padding:14px;
-      border:none;
-      border-radius:10px;
-      cursor:pointer;
-      font-size:16px;
-      font-weight:bold;
-      transition:0.3s;
-    }
+        .delete-btn:hover{
+            background:#b71c1c;
+        }
 
-    .cancel-btn{
-      background:#e5e7eb;
-      color:#111827;
-    }
+        @media(max-width:768px){
 
-    .cancel-btn:hover{
-      background:#d1d5db;
-    }
+            .container{
+                padding:25px 20px;
+            }
 
-    .delete-btn{
-      background:#dc2626;
-      color:white;
-    }
+            .header h1{
+                font-size:28px;
+            }
 
-    .delete-btn:hover{
-      background:#b91c1c;
-    }
+            .email-box a{
+                font-size:16px;
+                word-break:break-word;
+            }
 
-    .success-message{
-      display:none;
-      margin-top:20px;
-      background:#dcfce7;
-      color:#166534;
-      padding:15px;
-      border-radius:10px;
-      text-align:center;
-      font-weight:bold;
-    }
+        }
 
-    @media(max-width:600px){
-      .container{
-        padding:25px 20px;
-      }
-
-      h1{
-        font-size:26px;
-      }
-
-      .btn-group{
-        flex-direction:column;
-      }
-
-      button{
-        width:100%;
-      }
-    }
-  </style>
+    </style>
 </head>
+
 <body>
 
-  <div class="container">
+    <div class="container">
 
-    <div class="warning-icon">
-      ⚠
+        <div class="header">
+            <h1>Delete Your Account</h1>
+
+            <p>
+                We are sorry to see you leave Deal Theka.
+                If you want to permanently delete your account and associated data,
+                please follow the instructions below.
+            </p>
+        </div>
+
+        <div class="warning-box">
+
+            <h3>Important Notice</h3>
+
+            <p>
+                Once your account is deleted:
+            </p>
+
+            <ul>
+                <li>Your profile information will be permanently removed.</li>
+                <li>Your saved deals and preferences will be deleted.</li>
+                <li>Your account cannot be recovered after deletion.</li>
+            </ul>
+
+        </div>
+
+        <h2>How to Request Account Deletion?</h2>
+
+        <p>
+            To delete your Deal Theka account, please send an email request
+            from your registered email address with the subject:
+        </p>
+
+        <p>
+            <strong>"Account Deletion Request"</strong>
+        </p>
+
+        <p>
+            Include the following details in your email:
+        </p>
+
+        <ul>
+            <li>Your registered email address</li>
+            <li>Your phone number (optional)</li>
+            <li>Reason for account deletion (optional)</li>
+        </ul>
+
+        <h2>Send Deletion Request</h2>
+
+        <div class="email-box">
+
+            <p>Email your request to:</p>
+
+            <a href="mailto:sharmaravi5781@gmail.com">
+                sharmaravi5781@gmail.com
+            </a>
+
+            <br><br>
+
+            <a href="mailto:pt462989@gmail.com">
+                pt462989@gmail.com
+            </a>
+
+            <br>
+
+            <a class="delete-btn"
+               href="mailto:sharmaravi5781@gmail.com?subject=Account%20Deletion%20Request">
+               Send Request
+            </a>
+
+        </div>
+
+        <h2>Processing Time</h2>
+
+        <p>
+            Our support team will review your request and process the account
+            deletion within 24-72 hours.
+        </p>
+
+        <div class="footer">
+            © 2026 Deal Theka. All Rights Reserved.
+        </div>
+
     </div>
-
-    <h1>Delete Account</h1>
-
-    <p class="subtitle">
-      We're sorry to see you go. Deleting your DealTheka account is permanent and cannot be undone.
-    </p>
-
-    <div class="info-box">
-      <strong>When you delete your account:</strong>
-
-      <ul>
-        <li>Your profile and account data will be removed.</li>
-        <li>Your saved deals and preferences will be lost.</li>
-        <li>You will not be able to recover your account.</li>
-      </ul>
-    </div>
-
-    <div class="input-group">
-      <label for="password">Confirm Password</label>
-      <input type="password" id="password" placeholder="Enter your password">
-    </div>
-
-    <div class="checkbox">
-      <input type="checkbox" id="confirmCheck">
-      <label for="confirmCheck">
-        I understand that deleting my account is permanent.
-      </label>
-    </div>
-
-    <div class="btn-group">
-      <button class="cancel-btn" onclick="goBack()">
-        Cancel
-      </button>
-
-      <button class="delete-btn" onclick="deleteAccount()">
-        Delete Account
-      </button>
-    </div>
-
-    <div class="success-message" id="successMessage">
-      Your account has been deleted successfully.
-    </div>
-
-  </div>
-
-  <script>
-    function goBack(){
-      alert("Redirecting back...");
-      // window.history.back();
-    }
-
-    function deleteAccount(){
-
-      const password = document.getElementById("password").value;
-      const checkbox = document.getElementById("confirmCheck").checked;
-      const successMessage = document.getElementById("successMessage");
-
-      if(password.trim() === ""){
-        alert("Please enter your password.");
-        return;
-      }
-
-      if(!checkbox){
-        alert("Please confirm before deleting your account.");
-        return;
-      }
-
-      let confirmDelete = confirm(
-        "Are you sure you want to permanently delete your account?"
-      );
-
-      if(confirmDelete){
-        successMessage.style.display = "block";
-
-        // API CALL HERE
-        // fetch('/delete-account', { method: 'POST' })
-
-        setTimeout(() => {
-          alert("Account deleted.");
-        }, 1000);
-      }
-    }
-  </script>
 
 </body>
 </html>
